@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="color-scheme" content="light" />
+  <title>Helix Health — Facility Pre-Onboarding Portal</title>
+  <meta name="description" content="Helix Health facility pre-onboarding portal. Guided facility checklist, Helix-aligned template uploads (Departments through Patients), and JSON export for your integration layer." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Helix Health — Facility Pre-Onboarding Portal" />
+  <meta property="og:description" content="Guided facility onboarding checklist with Helix-aligned templates and offline-safe drafts." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Helix Health — Facility Pre-Onboarding Portal" />
+  <meta name="twitter:description" content="Guided facility onboarding checklist with Helix-aligned templates and offline-safe drafts." />
+  <!-- Replace og:url & og:image when you deploy -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://flagcdn.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-view="landing">
+
+<a href="#landing-root" class="skip-link" id="skip-content">Skip to main content</a>
+
+<!-- Shared top navigation -->
+<header class="nav" id="top-nav">
+  <div class="nav-bg-blur" aria-hidden="true"></div>
+  <div class="container nav-inner">
+    <a class="brand" href="#" data-go="landing">
+      <span class="brand-mark"><svg viewBox="0 0 47 40" aria-hidden="true"><g transform="translate(0,0) rotate(0 23 20)"><path fill="currentColor" d="M0 33L4.60606 25H12.2448C17.2569 25 21.4947 28.7103 22.1571 33.6784L23 40H13L11.5585 36.6365C10.613 34.4304 8.44379 33 6.04362 33H0Z"/><path fill="currentColor" d="M46 33L41.3939 25H33.7552C28.7431 25 24.5053 28.7103 23.8429 33.6784L23 40H33L34.4415 36.6365C35.387 34.4304 37.5562 33 39.9564 33H46Z"/><path fill="currentColor" d="M4.60606 25L18.9999 0H23L22.6032 9.52405C22.2608 17.7406 15.7455 24.3596 7.53537 24.8316L4.60606 25Z"/><path fill="currentColor" d="M41.3939 25L27.0001 0H23L23.3968 9.52405C23.7392 17.7406 30.2545 24.3596 38.4646 24.8316L41.3939 25Z"/></g></svg></span>
+      <span>Helix Health</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-controls="nav-drawer" aria-expanded="false">
+      <span class="ham-bar"></span>
+      <span class="ham-bar"></span>
+      <span class="ham-bar"></span>
+    </button>
+    <div class="nav-drawer" id="nav-drawer" aria-labelledby="nav-drawer-title">
+      <div class="nav-drawer-head">
+        <span class="nav-drawer-title" id="nav-drawer-title">Menu</span>
+        <button class="nav-drawer-close" id="nav-drawer-close" type="button" aria-label="Close menu">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" data-go="landing" data-section="features">Features</a>
+        <a class="nav-link" data-go="landing" data-section="how">How it works</a>
+        <a class="nav-link" data-go="landing" data-section="video">Walkthrough</a>
+        <a class="nav-link" data-go="portal">Pre-onboarding</a>
+        <a class="nav-link" data-go="templates" href="#templates">Templates</a>
+      </nav>
+      <div class="row nav-actions">
+        <button class="btn sm secondary" id="nav-resume" hidden>Resume draft</button>
+        <button class="btn sm" data-go="portal">Start checklist</button>
+      </div>
+    </div>
+  </div>
+  <div class="nav-scrim" id="nav-scrim" aria-hidden="true"></div>
+</header>
+
+<!-- ============ LANDING ============ -->
+<main class="landing" id="landing-root">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <span class="pill"><span class="dot"></span> Facility pre-onboarding for <em style="font-style:italic;">Helix</em></span>
+      <h1 class="display display-xl">Tell us about your facility — we'll take it from there.</h1>
+      <p class="lead">A polished replacement for the Google Form: Step 1 captures required facility details (must be complete to submit). Steps 2–6 walk through Departments, Units, Staff, Roles and Patients files using the exact Helix templates — attach each whenever your data is ready.</p>
+      <div class="hero-cta">
+        <button class="btn lg" data-go="portal">
+          Start the checklist
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="btn lg secondary" id="hero-watch">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 1l10 6-10 6V1z" fill="currentColor"/></svg>
+          Watch walkthrough
+        </button>
+      </div>
+      <div class="row" style="margin-top:28px; gap:22px; flex-wrap:wrap;">
+        <div class="row" style="gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span class="small text-muted">Autosaves every keystroke</span></div>
+        <div class="row" style="gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span class="small text-muted">Flag-aware phone fields</span></div>
+        <div class="row" style="gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span class="small text-muted">Resume any time from this browser</span></div>
+        <div class="row" style="gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span class="small text-muted">Template uploads &amp; CSV header checks</span></div>
+      </div>
+    </div>
+    <div class="hero-art reveal" aria-hidden="true">
+      <!-- Floating status cards -->
+      <div class="badge-card b1">
+        <div class="emoji">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 21V9M15 21V9M3 9h18"/></svg>
+        </div>
+        <div>
+          <strong>Facility details</strong>
+          <small>Saved just now</small>
+        </div>
+      </div>
+      <div class="badge-card b2">
+        <div class="emoji">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div>
+          <strong>Primary contact</strong>
+          <small>+233 · phone linked</small>
+        </div>
+      </div>
+      <div class="badge-card b3">
+        <div class="emoji">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e4572e" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9c2 0 4 .8 5.5 2"/></svg>
+        </div>
+        <div>
+          <strong>Ready for Helix</strong>
+          <small>Checklist complete</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Teaching Hospitals</span><span>·</span>
+    <span>Regional Hospitals</span><span>·</span>
+    <span>District Hospitals</span><span>·</span>
+    <span>Polyclinics</span><span>·</span>
+    <span>CHPS Compounds</span><span>·</span>
+    <span>Specialist Centres</span><span>·</span>
+    <span>Private Clinics</span><span>·</span>
+    <span>Teaching Hospitals</span><span>·</span>
+    <span>Regional Hospitals</span><span>·</span>
+    <span>District Hospitals</span><span>·</span>
+    <span>Polyclinics</span><span>·</span>
+    <span>CHPS Compounds</span><span>·</span>
+    <span>Specialist Centres</span><span>·</span>
+    <span>Private Clinics</span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="section-head balanced reveal">
+      <div>
+        <span class="eyebrow">What we'll ask about</span>
+        <h2 class="display display-lg" style="margin-top:10px;">Checklist, templates, and uploads.</h2>
+      </div>
+      <p class="lead">Six in-flow sections cover facility and operations questions. Separate steps cover Departments, Units, Staff, Roles and Patients when you are ready — they never block Step 1. Full column layouts live under Templates.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 21V9M15 21V9M3 9h18"/></svg>
+        </div>
+        <h3>Facility basics</h3>
+        <p>Name, type, location, address, email and phone — the essentials we need to register you in Helix.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>Contacts</h3>
+        <p>A primary contact we'll coordinate with (plus an optional backup) so nothing falls through the cracks.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Staffing & services</h3>
+        <p>Clinical, non-clinical and IT headcounts, plus whether you run emergency, inpatient and transfer services.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9c2 0 4 .8 5.5 2"/></svg>
+        </div>
+        <h3>Staff systems</h3>
+        <p>Quick Yes / No questions about staff IDs, work emails and existing directories — no uploads required in Step 1.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M4 4v16"/></svg>
+        </div>
+        <h3>Templates & files</h3>
+        <p>Helix-aligned tables with hover guidance, plus CSV / Excel uploads with header checks — wire your API when you connect infrastructure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="background: var(--bg-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">How it works</span>
+        <h2 class="display display-lg" style="margin-top:10px;">Four calm moves — start small, finish strong.</h2>
+      </div>
+    </div>
+
+    <div class="steps steps-4">
+      <div class="step reveal">
+        <div class="num">01</div>
+        <h3>Complete the checklist</h3>
+        <p>Facility Information through Staff Systems — inline tips on every field. Autosave keeps progress in this browser.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">02</div>
+        <h3>Template file uploads</h3>
+        <p>When ready, attach Departments, Units, Staff, Roles and Patients exports. CSV gets instant header validation; Excel is accepted for hand-off. Column names show the same hover tips as Templates.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">03</div>
+        <h3>Use Templates as source of truth</h3>
+        <p>Open the Templates tab to see exact column names and Guide text — same shape your engineers will POST to Helix.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">04</div>
+        <h3>Review & export JSON</h3>
+        <p>Confirm answers, download a structured payload, then let your backend deliver it to Helix onboarding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="container">
+    <div class="section-head balanced reveal">
+      <div>
+        <span class="eyebrow">Walkthrough</span>
+        <h2 class="display display-lg" style="margin-top:10px;">Watch a 4-minute overview.</h2>
+      </div>
+      <p class="lead">See how the pre-onboarding checklist flows, and what happens once your facility is accepted for Helix rollout.</p>
+    </div>
+    <div class="video-wrap reveal" id="video-wrap">
+      <div class="video-placeholder" id="video-placeholder" role="button" tabindex="0" aria-label="Play walkthrough video">
+        <div class="play">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4l14 8-14 8V4z"/></svg>
+        </div>
+        <div class="caption">
+          <h4>Pre-onboarding,<br/>step by step.</h4>
+          <small>04:12 · Walkthrough</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container">
+    <div class="section-head cta-band-head">
+      <div class="reveal">
+        <h2>Ready to register your facility with Helix?</h2>
+        <p class="lead" style="color:rgba(255,255,255,0.72);">Run the checklist now; add template files later. Everything saves locally until your team connects the API.</p>
+      </div>
+      <div class="reveal cta-band-actions">
+        <button class="btn lg" data-go="portal">Open the checklist</button>
+        <button class="btn lg secondary" id="cta-watch">Watch video</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="brand">
+      <span class="brand-mark"><svg viewBox="0 0 47 40" aria-hidden="true"><g transform="translate(0,0) rotate(0 23 20)"><path fill="currentColor" d="M0 33L4.60606 25H12.2448C17.2569 25 21.4947 28.7103 22.1571 33.6784L23 40H13L11.5585 36.6365C10.613 34.4304 8.44379 33 6.04362 33H0Z"/><path fill="currentColor" d="M46 33L41.3939 25H33.7552C28.7431 25 24.5053 28.7103 23.8429 33.6784L23 40H33L34.4415 36.6365C35.387 34.4304 37.5562 33 39.9564 33H46Z"/><path fill="currentColor" d="M4.60606 25L18.9999 0H23L22.6032 9.52405C22.2608 17.7406 15.7455 24.3596 7.53537 24.8316L4.60606 25Z"/><path fill="currentColor" d="M41.3939 25L27.0001 0H23L23.3968 9.52405C23.7392 17.7406 30.2545 24.3596 38.4646 24.8316L41.3939 25Z"/></g></svg></span>
+      <span>Helix Health</span>
+    </div>
+    <span class="spacer"></span>
+    <div class="footer-privacy">
+      <p><strong>Privacy.</strong> Drafts and file metadata stay in this browser until you integrate a backend. Avoid shared computers for sensitive data. Discarding the draft clears saved answers and upload references.</p>
+    </div>
+    <span class="spacer"></span>
+    <span>© <span id="y"></span> Helix Health. Clinical communication for modern hospitals.</span>
+  </div>
+</footer>
+
+</main>
+
+<!-- ============ PORTAL ============ -->
+<main class="portal" id="portal">
+  <nav class="portal-steps" id="portal-steps" role="tablist" aria-label="Onboarding steps"></nav>
+  <div class="portal-grid">
+  <aside class="sidebar">
+    <h4>Progress</h4>
+    <div class="progress-ring" aria-label="Overall progress">
+      <svg viewBox="0 0 120 120">
+        <circle class="ring-bg" cx="60" cy="60" r="52"/>
+        <circle class="ring-fg" id="ring-fg" cx="60" cy="60" r="52" stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
+      </svg>
+      <div class="ring-text" id="ring-text">0%</div>
+    </div>
+    <p class="ring-sub" id="ring-sub"></p>
+
+    <h4 class="sidebar-dynamic-heading">Sections</h4>
+    <div class="tab-list" id="tab-list"></div>
+
+    <div class="rules">
+      <strong id="rules-heading" style="color:var(--ink); font-weight:600;">How this works</strong>
+      <ul id="rules-list"></ul>
+    </div>
+
+    <div style="margin-top:20px; display:flex; flex-direction:column; gap:8px;">
+      <button class="btn sm secondary" id="export-btn">Export as JSON</button>
+      <button class="btn sm ghost" id="reset-btn">Discard draft</button>
+    </div>
+  </aside>
+
+  <section class="workspace" id="workspace" tabindex="-1"></section>
+  </div>
+  <footer class="portal-privacy-foot">
+    <p><strong>Local-first prototype.</strong> No server upload yet — JSON export + file metadata are for your integration layer. Replace this notice when Helix ingestion is live.</p>
+  </footer>
+</main>
+
+<!-- ============ TEMPLATES ============ -->
+<main class="templates-main" id="templates-view" tabindex="-1" aria-label="Data templates"></main>
+
+<!-- Modal host -->
+<div class="modal-host" id="modal-host" role="dialog" aria-modal="true">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<!-- Floating tooltip (positioned dynamically by app.js) -->
+<div id="global-tooltip" role="tooltip" aria-hidden="true"></div>
+
+<!-- Toast host -->
+<div class="toast-host" id="toast-host" aria-live="polite"></div>
+
+<script>
+(function () {
+  const toggle = document.getElementById('nav-toggle');
+  const drawer = document.getElementById('nav-drawer');
+  const scrim  = document.getElementById('nav-scrim');
+  const closeBtn = document.getElementById('nav-drawer-close');
+  if (!toggle || !drawer || !scrim) return;
+
+  const mq = window.matchMedia('(max-width: 900px)');
+  const isMobile = () => mq.matches;
+
+  function setOpen(open) {
+    const next = !!open && isMobile();
+    toggle.setAttribute('aria-expanded', next ? 'true' : 'false');
+    toggle.setAttribute('aria-label', next ? 'Close menu' : 'Open menu');
+    drawer.classList.toggle('open', next);
+    scrim.classList.toggle('open', next);
+    document.body.classList.toggle('nav-drawer-open', next);
+    syncInert();
+    if (next) {
+      const firstLink = drawer.querySelector('.nav-link, .btn:not([hidden])');
+      if (firstLink) firstLink.focus({ preventScroll: true });
+    }
+  }
+
+  function syncInert() {
+    // The drawer is a regular flow container on desktop; only mark it
+    // inert when it is collapsed off-canvas on small screens so its
+    // links can never be tabbed into while hidden.
+    if (isMobile() && !drawer.classList.contains('open')) {
+      drawer.setAttribute('inert', '');
+      drawer.setAttribute('aria-hidden', 'true');
+    } else {
+      drawer.removeAttribute('inert');
+      drawer.removeAttribute('aria-hidden');
+    }
+  }
+
+  toggle.addEventListener('click', () => {
+    setOpen(!drawer.classList.contains('open'));
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      setOpen(false);
+      toggle.focus({ preventScroll: true });
+    });
+  }
+
+  scrim.addEventListener('click', () => setOpen(false));
+
+  drawer.addEventListener('click', (e) => {
+    const target = e.target.closest('.nav-link, .btn');
+    if (target && isMobile()) setOpen(false);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      setOpen(false);
+      toggle.focus({ preventScroll: true });
+    }
+  });
+
+  const onBreakpointChange = () => {
+    if (!isMobile()) setOpen(false);
+    syncInert();
+  };
+  if (mq.addEventListener) mq.addEventListener('change', onBreakpointChange);
+  else if (mq.addListener) mq.addListener(onBreakpointChange);
+
+  syncInert();
+})();
+</script>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
